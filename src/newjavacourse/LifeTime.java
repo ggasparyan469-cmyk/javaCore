@@ -6,7 +6,7 @@ public class LifeTime {
         for ( x = 0; x < 3; x++) {
             int y = -1;
             System.out.println("y = " +y);
-            y=100;
+            y=200;
             System.out.println("now y = " + y);
         }
     }
