@@ -87,7 +87,7 @@ public class ArrayUtil {
         }
         System.out.println(sum1 / numbers9.length);
 
-        //
+        //Գտնել ամենամեծ թիվը
         System.out.println("---Bonus1---");
         int[] numbers10 = {1, 6, 3, 9, 15, 52, -3, 5, 8};
         int max = numbers10[0];
@@ -97,11 +97,11 @@ public class ArrayUtil {
             }
         }
         System.out.println("Maximum number:" + max);
+
+        //Հաշվել դրական և բացասական թվերը
         System.out.println("---Bonus2---");
         int[] numbers11 = {1, 6, 3, 9, 15, 52, -3, 5, 8};
-
         int evenCount = 0,oddCount = 0,zeroCount = 0;
-
         for (int i = 0; i < numbers11.length; i++) {
             if (numbers11[i] == 0) {
                 zeroCount++;
@@ -111,11 +111,11 @@ public class ArrayUtil {
                 oddCount++;
             }
         }
-
         System.out.println("Even numbers count: " + evenCount);
         System.out.println("Odd numbers count: " + oddCount);
         System.out.println("Zero count: " + zeroCount);
 
+        //Տպել զանգվածը հակառակ հերթականությամբ
         System.out.println("---Bonus3---");
         int[] num = {1, 6, 3, 9, 15, 52, -3, 5, 8};
         for (int i = num.length-1; i >= 0; i--) {
