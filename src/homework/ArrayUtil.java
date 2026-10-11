@@ -115,6 +115,13 @@ public class ArrayUtil {
         System.out.println("Even numbers count: " + evenCount);
         System.out.println("Odd numbers count: " + oddCount);
         System.out.println("Zero count: " + zeroCount);
+
+        System.out.println("---Bonus3---");
+        int[] num = {1, 6, 3, 9, 15, 52, -3, 5, 8};
+        for (int i = num.length-1; i >= 0; i--) {
+            System.out.print(num[i] + " ");
+        }
+        System.out.println();
     }
 
 }
