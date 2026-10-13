@@ -4,7 +4,7 @@ public class ArrayUtil {
     public static void main(String[] args) {
         //Տպել զանգվածի բոլոր էլէմենտները
         System.out.println("---1---");
-        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8};
+        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8, 9};
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");
         }
@@ -36,10 +36,11 @@ public class ArrayUtil {
         System.out.println("---6---");
         if (numbers.length <= 2) {
             System.out.println("Can't print middle values");
-        } else if(numbers.length % 2 !=0){
+        } else if (numbers.length % 2 != 0) {
             System.out.println("Middle Element:" + numbers[numbers.length / 2]);
-        }else{
-            System.out.println("Middle Element:" + numbers[numbers.length / 2 - 1]);
+        } else {
+            System.out.println("Middle Element:" + numbers[numbers.length / 2 - 1] + " "
+                    + numbers[numbers.length / 2]);
         }
 
         //Հաշվել զույգ թվերի քանակը
@@ -91,7 +92,7 @@ public class ArrayUtil {
 
         //Հաշվել դրական և բացասական թվերը
         System.out.println("---Bonus2---");
-        int evenCount = 0,oddCount = 0,zeroCount = 0;
+        int evenCount = 0, oddCount = 0, zeroCount = 0;
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == 0) {
                 zeroCount++;
@@ -107,7 +108,7 @@ public class ArrayUtil {
 
         //Տպել զանգվածը հակառակ հերթականությամբ
         System.out.println("---Bonus3---");
-        for (int i = numbers.length-1; i >= 0; i--) {
+        for (int i = numbers.length - 1; i >= 0; i--) {
             System.out.print(numbers[i] + " ");
         }
         System.out.println();
