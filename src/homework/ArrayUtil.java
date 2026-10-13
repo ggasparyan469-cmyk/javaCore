@@ -94,17 +94,14 @@ public class ArrayUtil {
         System.out.println("---Bonus2---");
         int evenCount = 0, oddCount = 0, zeroCount = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 0) {
-                zeroCount++;
-            } else if (numbers[i] % 2 == 0) {
-                evenCount++;
-            } else {
+            if (numbers[i]  % 2 !=  0) {
                 oddCount++;
+            } else {
+                evenCount++;
             }
         }
         System.out.println("Even numbers count: " + evenCount);
         System.out.println("Odd numbers count: " + oddCount);
-        System.out.println("Zero count: " + zeroCount);
 
         //Տպել զանգվածը հակառակ հերթականությամբ
         System.out.println("---Bonus3---");
