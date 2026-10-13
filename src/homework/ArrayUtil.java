@@ -36,8 +36,10 @@ public class ArrayUtil {
         System.out.println("---6---");
         if (numbers.length <= 2) {
             System.out.println("Can't print middle values");
-        } else {
+        } else if(numbers.length % 2 !=0){
             System.out.println("Middle Element:" + numbers[numbers.length / 2]);
+        }else{
+            System.out.println("Middle Element:" + numbers[numbers.length / 2 - 1]);
         }
 
         //Հաշվել զույգ թվերի քանակը
