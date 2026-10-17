@@ -16,9 +16,18 @@ public class ArrayHomework {
 
         //Շրջել զանգվածի էլեմենտների հերթականությունը
         System.out.println("No2;");
-        for (int i = numbers.length - 1; i >= 0; i--) {
-            System.out.print(numbers[i] + " ");
+        int[] number = {6, 3, 8, 6, 1, 9, 6, 4, 3, 2, 6};
+
+        for (int i = 0; i < number.length / 2; i++) {
+            int x = number[i];
+            number[i] = number[number.length - 1 - i];
+            number[number.length - 1 - i] = x;
         }
+
+        for (int i = 0; i < number.length; i++) {
+            System.out.print(number[i] + " ");
+        }
+
 
         System.out.println();
 
@@ -33,7 +42,7 @@ public class ArrayHomework {
                     break;
                 }
             }
-            if (found != false) {
+            if (found == false) {
                 for (int j = i + 1; j < numbers.length; j++) {
                     if (numbers[i] == numbers[j]) {
                         count3++;
@@ -65,7 +74,7 @@ public class ArrayHomework {
         //Գտնել երկրորդ ամենամեծ թիվը
         System.out.println("Bonus1");
         int max = numbers[0];
-        int secondmax = numbers[0];
+        int secondmax = Integer.MIN_VALUE;
 
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] > max) {
@@ -81,20 +90,22 @@ public class ArrayHomework {
 
         //Հեռացնել կրկնվող թվերը
         System.out.println("Bonus2");
+
         for (int i = 0; i < numbers.length; i++) {
             boolean found = true;
+
             for (int j = 0; j < i; j++) {
                 if (numbers[i] == numbers[j]) {
                     found = false;
                     break;
                 }
             }
+
             if (found) {
                 System.out.print(numbers[i] + " ");
             }
         }
         System.out.println();
-
         //Գտնել ամենաշատ կրկնվող թիվը
         System.out.println("Bonus3");
         int maxCount = 0;
