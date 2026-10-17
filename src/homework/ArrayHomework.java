@@ -19,7 +19,10 @@ public class ArrayHomework {
         for (int i = numbers.length - 1; i >= 0; i--) {
             System.out.print(numbers[i] + " ");
         }
+
         System.out.println();
+
+        //Հաշվել կրկնվող թվերի քանակը
         System.out.println("No3;");
         int count3 = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -41,8 +44,8 @@ public class ArrayHomework {
         }
 
         System.out.println("Repeated numbers count: " + count3);
-        System.out.println("No4;");
         // Հաշվել ձայնավորների քանակը
+        System.out.println("No4;");
         char[] chars = {'բ', 'ա', 'ր', 'և', 'ա', 'շ', 'խ', 'ա', 'ր', 'հ'};
         char[] vowels = {'ա', 'ե', 'է', 'ը', 'ի', 'ո', 'օ'};
 
@@ -58,6 +61,8 @@ public class ArrayHomework {
         }
 
         System.out.println("Count of vowels: " + count1);
+
+        //Գտնել երկրորդ ամենամեծ թիվը
         System.out.println("Bonus1");
         int max = numbers[0];
         int secondmax = numbers[0];
@@ -73,8 +78,9 @@ public class ArrayHomework {
 
         System.out.println("Maximum number: " + max);
         System.out.println("Second maximum number: " + secondmax);
+
+        //Հեռացնել կրկնվող թվերը
         System.out.println("Bonus2");
-        int count4 = 0;
         for (int i = 0; i < numbers.length; i++) {
             boolean found = true;
             for (int j = 0; j < i; j++) {
@@ -88,6 +94,8 @@ public class ArrayHomework {
             }
         }
         System.out.println();
+
+        //Գտնել ամենաշատ կրկնվող թիվը
         System.out.println("Bonus3");
         int maxCount = 0;
         int mostRepeated = numbers[0];
