@@ -5,7 +5,7 @@ public class Return {
         boolean t = true;
         System.out.println("Մինչև վերադարձը։");
 
-        if (t) return; // վերադարձ կանչող կոդին
+        if (t) return;
 
         System.out.println(
                 "Այս հրահանգը չի կատարվի։");
