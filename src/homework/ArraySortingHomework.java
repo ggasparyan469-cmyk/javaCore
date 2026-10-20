@@ -3,6 +3,7 @@ package homework;
 public class ArraySortingHomework {
     public static void main(String[] args) {
         System.out.println();
+        //Սորտավորել զանգվածը փոքրից մեծ
         System.out.println("No;1");
         int[] numbers = {12,45, 5, 8, -3, 21, 7, 0, 15, 2, 9};
         for (int i = 0; i < numbers.length; i++) {
@@ -18,6 +19,7 @@ public class ArraySortingHomework {
             System.out.println(numbers[i]);
         }
         System.out.println();
+        //Սորտավորել զանգվածը մեծից փոքր
         System.out.println("No;2");
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < i; j++) {
