@@ -26,10 +26,10 @@ public class CharArrayUtil {
 
         System.out.println("No3");
         //Հաշվել տրված սիմվոլի հանդիպումների քանակը
-        char c = 'a';
+        char space = 'a';
         int count1 = 0;
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == c) {
+            if (chars[i] == space) {
                 count1++;
             }
         }
@@ -150,13 +150,21 @@ public class CharArrayUtil {
         }
         System.out.println("Bonus2");
         //Համեմատել երկու char զանգված
-        char[] chars1 = {
-                'J', 'a', 'v', 'a'
-        };
-        char[] chars2 = {
-                'J', 'a', 'v', 'a'
-        };
+        char[] chars1 = {'J', 'a', 'v', 'a'};
+        char[] chars2 = {'J', 'a', 'v', 'a'};
+        boolean areEqual = true;
         if (chars1.length == chars2.length) {
+            for (int i = 0; i < chars1.length; i++) {
+                if (chars1[i] != chars2[i]) {
+                    areEqual = false;
+                    break;
+                }
+            }
+        } else {
+            areEqual = false;
+        }
+
+        if (areEqual) {
             System.out.println("Arrays are equal");
         } else {
             System.out.println("Arrays aren't equal");
