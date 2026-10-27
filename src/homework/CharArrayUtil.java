@@ -22,7 +22,7 @@ public class CharArrayUtil {
         }
         System.out.println("Characters count: " + count);
         System.out.println("First is; " + chars[0]);
-        System.out.println("Last is; " + chars[11]);
+        System.out.println("Last is; " + chars[chars.length - 1]);
 
         System.out.println("No3");
         //Հաշվել տրված սիմվոլի հանդիպումների քանակը
