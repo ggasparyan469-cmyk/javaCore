@@ -17,23 +17,23 @@ public class DynamicArray {
         int[] newArray = new int[array.length + 10];
 
         for (int i = 0; i < size; i++) {
-            newArray[i] = array[i];
+            newArray[i] = array[i] ;
         }
 
         array = newArray;
     }
 
    public int getByIndex(int index) {
-        if (index < 0 || index >= size) {
-            return -1;
+        if (index >= 0 && index < size) {
+            return array[index];
         }
 
-        return array[index];
+        return -1;
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(array[i]);
+            System.out.print(array[i] + " ");
         }
     }
 }
