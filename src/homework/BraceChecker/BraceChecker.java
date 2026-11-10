@@ -7,11 +7,12 @@ public class BraceChecker {
     private int tos;
 
     public BraceChecker(String text) {
-
+        this.text = text;
+        tos = -1;
     }
 
     void push(int item) {
-            stck[++tos] = item;
+        stck[++tos] = item;
     }
 
     int pop() {
@@ -22,29 +23,34 @@ public class BraceChecker {
         }
     }
 
-    public void check() {
+    public boolean check() {
+        tos = -1;
+
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
+
             if (ch == '{' || ch == '[' || ch == '(') {
                 push(ch);
+
             } else if (ch == '}' || ch == ']' || ch == ')') {
                 int last = pop();
+
+                if (last == -1) {
+                    return false;
+                }
+
                 if (ch == '}' && last != '{' ||
                         ch == ']' && last != '[' ||
                         ch == ')' && last != '(') {
-                    System.out.println("Error: opened " + (char) last
-                            + " but closed " + ch + " at " + i);
-                    return;
+                    return false;
                 }
             }
-
         }
 
         if (tos == -1) {
-            System.out.println("No errors");
+            return true;
         } else {
-            System.out.println("Error: opened " + (char) stck[tos]
-                    + " but not closed at " + text.length());
+            return false;
         }
     }
 }
