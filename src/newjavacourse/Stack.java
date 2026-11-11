@@ -1,7 +1,7 @@
-
-package newjavacourse;
+package BraceChecker;
 
 public class Stack {
+
     int[] stck = new int[10];
     int tos;
 
@@ -20,10 +20,18 @@ public class Stack {
     int pop() {
         if (tos < 0) {
             System.out.println("Ստեկը դատարկ է։");
-            return 0;
+            return -1;
         } else {
             return stck[tos--];
         }
+    }
+
+    boolean isEmpty() {
+        return tos == -1;
+    }
+
+    void clear() {
+        tos = -1;
     }
 }
 

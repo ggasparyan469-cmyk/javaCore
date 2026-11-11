@@ -11,46 +11,59 @@ public class BraceChecker {
         tos = -1;
     }
 
-    void push(int item) {
-        stck[++tos] = item;
-    }
+    class Stack {
 
-    int pop() {
-        if (tos < 0) {
-            return -1;
-        } else {
-            return stck[tos--];
+        void push(int item) {
+            stck[++tos] = item;
+        }
+
+        int pop() {
+            if (tos < 0) {
+                return -1;
+            } else {
+                return stck[tos--];
+            }
         }
     }
 
-    public boolean check() {
+    public void check() {
         tos = -1;
+
+        Stack stack = new Stack();
+        int[] indexes = new int[10];
 
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
 
             if (ch == '{' || ch == '[' || ch == '(') {
-                push(ch);
+                stack.push(ch);
+                indexes[tos] = i;
 
             } else if (ch == '}' || ch == ']' || ch == ')') {
-                int last = pop();
+                int last = stack.pop();
 
                 if (last == -1) {
-                    return false;
+                    System.out.println("Error: closed " + ch + " at " + i
+                            + " without opening");
+                    return;
                 }
 
                 if (ch == '}' && last != '{' ||
                         ch == ']' && last != '[' ||
                         ch == ')' && last != '(') {
-                    return false;
+
+                    System.out.println("Error: opened " + (char) last
+                            + " but closed " + ch + " at " + i);
+                    return;
                 }
             }
         }
 
-        if (tos == -1) {
-            return true;
+        if (tos != -1) {
+            System.out.println("Error: opened " + (char) stack.pop()
+                    + " but not closed");
         } else {
-            return false;
+            System.out.println("True");
         }
     }
 }
