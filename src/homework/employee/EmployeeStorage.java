@@ -1,37 +1,47 @@
+
 package homework.employee;
 
 public class EmployeeStorage {
 
-    private Employee[] array = new Employee[10];
+    private Employee[] employees = new Employee[10];
     private int size = 0;
 
     public void add(Employee employee) {
-        if (size == array.length) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getEmployeeID().equalsIgnoreCase(employee.getEmployeeID())) {
+                System.out.println("Employee already exists.");
+                return;
+            }
+        }
+
+        if (size == employees.length) {
             extend();
         }
 
-        array[size++] = employee;
+        employees[size++] = employee;
     }
 
     private void extend() {
-        Employee[] tmp = new Employee[array.length + 10];
+        Employee[] tmp = new Employee[employees.length + 10];
 
-        for (int i = 0; i < array.length; i++) {
-            tmp[i] = array[i];
+        for (int i = 0; i < employees.length; i++) {
+            tmp[i] = employees[i];
         }
 
-        array = tmp;
+        employees = tmp;
     }
 
-    public Employee getByIndex(int index) {
-        if (index >= 0 && index < size) {
-            return array[index];
+    public Employee getById(String id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getEmployeeID().equalsIgnoreCase(id)) {
+                return employees[i];
+            }
         }
 
         return null;
     }
 
-    public void print() {
+    public void printAll() {
         if (size == 0) {
             System.out.println("No employees found.");
             return;
@@ -39,7 +49,7 @@ public class EmployeeStorage {
 
         for (int i = 0; i < size; i++) {
             System.out.println("Employee " + (i + 1) + ":");
-            System.out.println(array[i]);
+            System.out.println(employees[i]);
             System.out.println();
         }
     }
@@ -48,59 +58,127 @@ public class EmployeeStorage {
         boolean found = false;
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getName().equalsIgnoreCase(keyword)
-                    || array[i].getSurname().equalsIgnoreCase(keyword)) {
+            if (employees[i].getName().equalsIgnoreCase(keyword)
+                    || employees[i].getSurname().equalsIgnoreCase(keyword)
+                    || employees[i].getEmployeeID().equalsIgnoreCase(keyword)) {
 
-                System.out.println(array[i]);
-                System.out.println();
+                System.out.println(employees[i]);
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("Employee not found.");
+            System.out.println("No employees found.");
         }
     }
 
-    public void searchByCompany(String company) {
+    public void printByCompanyName(String name) {
         boolean found = false;
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getCompany().equalsIgnoreCase(company)) {
-
+            if (employees[i].getCompany().getName().equalsIgnoreCase(name)) {
                 if (!found) {
                     System.out.println("Employees:");
                 }
 
-                System.out.println(array[i].getName() + " "
-                        + array[i].getSurname() + " - "
-                        + array[i].getPosition());
+                System.out.println(employees[i].getName() + " "
+                        + employees[i].getSurname() + " - "
+                        + employees[i].getPosition());
 
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("No employees found for company " + company + ".");
+            System.out.println("No employees found for company " + name + ".");
         }
     }
 
-    public void searchByEmployeeID(String employeeID) {
+    public void printByCompanyId(String id) {
         boolean found = false;
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getEmployeeID().equalsIgnoreCase(employeeID)) {
+            if (employees[i].getCompany().getCompanyId().equalsIgnoreCase(id)) {
+                if (!found) {
+                    System.out.println("Employees:");
+                }
 
-                System.out.println("Employee found:");
-                System.out.println(array[i]);
+                System.out.println(employees[i].getName() + " "
+                        + employees[i].getSurname() + " - "
+                        + employees[i].getPosition());
 
                 found = true;
-                break;
             }
         }
 
         if (!found) {
-            System.out.println("Employee with ID " + employeeID + " not found.");
+            System.out.println("No employees found for company ID " + id + ".");
         }
     }
+
+    public Employee searchByEmployeeID(String employeeID) {
+        return getById(employeeID);
+    }
+
+    public int countByCompanyId(String id) {
+        int count = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getCompany().getCompanyId().equalsIgnoreCase(id)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    // Bonus 2
+    public long calculateTotalSalaryByCompanyId(String id) {
+        long total = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getCompany().getCompanyId().equalsIgnoreCase(id)) {
+                total += employees[i].getSalary();
+            }
+        }
+
+        return total;
+    }
+
+    // Bonus 3
+    public Employee getEmployeeWithHighestSalary() {
+        if (size == 0) {
+            return null;
+        }
+
+        Employee highest = employees[0];
+
+        for (int i = 1; i < size; i++) {
+            if (employees[i].getSalary() > highest.getSalary()) {
+                highest = employees[i];
+            }
+        }
+
+        return highest;
+    }
+
+    // Bonus 4
+    public boolean deleteById(String id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getEmployeeID().equalsIgnoreCase(id)) {
+
+                for (int j = i; j < size - 1; j++) {
+                    employees[j] = employees[j + 1];
+                }
+
+                employees[size - 1] = null;
+                size--;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
+

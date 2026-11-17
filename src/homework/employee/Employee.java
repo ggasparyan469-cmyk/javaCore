@@ -1,3 +1,4 @@
+
 package homework.employee;
 
 import java.util.Objects;
@@ -7,12 +8,12 @@ public class Employee {
     private String name;
     private String surname;
     private String employeeID;
-    private String company;
+    private Company company;
     private String position;
     private int salary;
 
     public Employee(String name, String surname, String employeeID,
-                    String company, String position, int salary) {
+                    Company company, String position, int salary) {
         this.name = name;
         this.surname = surname;
         this.employeeID = employeeID;
@@ -48,11 +49,11 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -79,8 +80,8 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", employeeID='" + employeeID + '\'' +
                 ", company='" + company + '\'' +
-                ", salary='" + salary + '\'' +
                 ", position='" + position + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 
