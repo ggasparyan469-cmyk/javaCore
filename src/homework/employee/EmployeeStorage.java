@@ -1,4 +1,3 @@
-
 package homework.employee;
 
 public class EmployeeStorage {
@@ -6,12 +5,12 @@ public class EmployeeStorage {
     private Employee[] array = new Employee[10];
     private int size = 0;
 
-    public void add(Employee e) {
+    public void add(Employee employee) {
         if (size == array.length) {
             extend();
         }
 
-        array[size++] = e;
+        array[size++] = employee;
     }
 
     private void extend() {
@@ -49,8 +48,8 @@ public class EmployeeStorage {
         boolean found = false;
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getName().contains(keyword)
-                    || array[i].getSurname().contains(keyword)) {
+            if (array[i].getName().equalsIgnoreCase(keyword)
+                    || array[i].getSurname().equalsIgnoreCase(keyword)) {
 
                 System.out.println(array[i]);
                 System.out.println();
@@ -68,6 +67,10 @@ public class EmployeeStorage {
 
         for (int i = 0; i < size; i++) {
             if (array[i].getCompany().equalsIgnoreCase(company)) {
+
+                if (!found) {
+                    System.out.println("Employees:");
+                }
 
                 System.out.println(array[i].getName() + " "
                         + array[i].getSurname() + " - "
@@ -97,8 +100,7 @@ public class EmployeeStorage {
         }
 
         if (!found) {
-            System.out.println("Employee with ID "
-                    + employeeID + " not found.");
+            System.out.println("Employee with ID " + employeeID + " not found.");
         }
     }
 }

@@ -1,6 +1,9 @@
 package homework.employee;
 
+import java.util.Objects;
+
 public class Employee {
+
     private String name;
     private String surname;
     private String employeeID;
@@ -8,19 +11,17 @@ public class Employee {
     private String position;
     private int salary;
 
-
     public Employee(String name, String surname, String employeeID,
-                   String company,String position,int salary) {
+                    String company, String position, int salary) {
         this.name = name;
         this.surname = surname;
         this.employeeID = employeeID;
         this.company = company;
-        this.position=position;
-        this.salary=salary;
+        this.position = position;
+        this.salary = salary;
     }
 
     public Employee() {
-
     }
 
     public String getName() {
@@ -55,13 +56,6 @@ public class Employee {
         this.company = company;
     }
 
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
     public String getPosition() {
         return position;
     }
@@ -70,9 +64,17 @@ public class Employee {
         this.position = position;
     }
 
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", employeeID='" + employeeID + '\'' +
@@ -81,6 +83,7 @@ public class Employee {
                 ", position='" + position + '\'' +
                 '}';
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -93,12 +96,11 @@ public class Employee {
 
         Employee employee = (Employee) obj;
 
-        return employeeID.equals(employee.employeeID);
+        return Objects.equals(employeeID, employee.employeeID);
     }
 
     @Override
     public int hashCode() {
-        return employeeID.hashCode();
+        return Objects.hash(employeeID);
     }
-
 }

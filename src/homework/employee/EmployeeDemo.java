@@ -9,17 +9,16 @@ public class EmployeeDemo {
 
     public static void main(String[] args) {
 
-        boolean isRun = true;
-
-        while (isRun) {
+        while (true) {
             printCommands();
 
+            System.out.println("Please input command:");
             String command = scanner.nextLine();
 
             switch (command) {
                 case "0":
-                    isRun = false;
-                    break;
+                    System.out.println("Goodbye!");
+                    return;
 
                 case "1":
                     addEmployee();
@@ -38,7 +37,7 @@ public class EmployeeDemo {
                     break;
 
                 default:
-                    System.out.println("command not found!");
+                    System.out.println("Invalid command. Please try again.");
             }
         }
     }
@@ -48,41 +47,54 @@ public class EmployeeDemo {
         System.out.println("Please input 1 for ADD EMPLOYEE");
         System.out.println("Please input 2 for PRINT ALL EMPLOYEES");
         System.out.println("Please input 3 for SEARCH EMPLOYEE BY ID");
-        System.out.println("Please input 4 for SEARCH EMPLOYEES BY COMPANY NAME");
+        System.out.println("Please input 4 for SEARCH EMPLOYEES BY COMPANY");
     }
 
-
     private static void addEmployee() {
-        System.out.println("Please input name,surname,employeeID,company,position,salary");
 
-        String employeeDataStr = scanner.nextLine();
-        String[] employeeData = employeeDataStr.split(",");
+        System.out.println("Please input employee name:");
+        String name = scanner.nextLine();
+
+        System.out.println("Please input employee surname:");
+        String surname = scanner.nextLine();
+
+        System.out.println("Please input employee ID:");
+        String employeeID = scanner.nextLine();
+
+        System.out.println("Please input employee company:");
+        String company = scanner.nextLine();
+
+        System.out.println("Please input employee position:");
+        String position = scanner.nextLine();
+
+        System.out.println("Please input employee salary:");
+        int salary = Integer.parseInt(scanner.nextLine());
 
         Employee employee = new Employee(
-                employeeData[0],
-                employeeData[1],
-                employeeData[2],
-                employeeData[3],
-                employeeData[4],
-                Integer.parseInt(employeeData[5])
+                name,
+                surname,
+                employeeID,
+                company,
+                position,
+                salary
         );
 
         employeeStorage.add(employee);
 
-        System.out.println("Employee added!!!");
+        System.out.println("Employee successfully added!");
     }
 
     private static void searchEmployeeByID() {
-        System.out.println("Please input employeeID");
 
+        System.out.println("Please input employee ID:");
         String employeeID = scanner.nextLine();
 
         employeeStorage.searchByEmployeeID(employeeID);
     }
 
     private static void searchEmployeeByCompany() {
-        System.out.println("Please input company");
 
+        System.out.println("Please input company name:");
         String company = scanner.nextLine();
 
         employeeStorage.searchByCompany(company);
